@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,53 +30,16 @@ Route::get('/about', function () {
 });
 
 Route::get('/blog', function () {
-    $blog_post = [
-        [
-            "title" => "Judul post pertama",
-            "slug" => "judul-post-pertama",
-            "author" => "Hikmal Falah",
-            "body" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, atque nostrum quaerat reiciendis ipsum et dolorem magni suscipit quo ullam eius, autem aut? Dolorum ducimus quibusdam repellendus, aperiam in libero, quaerat quia consequuntur adipisci voluptas ratione molestias soluta laborum voluptate, debitis natus tenetur architecto officia doloribus quos ad rerum dicta."
-        ],
-        [
-            "title" => "Judul post kedua",
-            "slug" => "judul-post-kedua",
-            "author" => "Justina Xie",
-            "body" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, eaque necessitatibus aut dicta, est animi minus rem iusto distinctio, itaque repellendus cupiditate? Iure quam nisi nesciunt accusamus modi quia asperiores! Repudiandae corporis laudantium unde id exercitationem est, nihil laborum earum fuga, commodi veritatis necessitatibus obcaecati nobis dolorem impedit quaerat quisquam temporibus. Excepturi, earum atque nulla quas cumque totam molestias est porro, consequatur eveniet eum quia quaerat modi architecto optio quam quis quae reiciendis facere. Nobis modi voluptatibus quaerat consequatur! Consectetur!"
-        ]
-    ];
-
     return view('posts', [
         'title' => 'Blog',
-        'posts' => $blog_post
+        'posts' => Post::all()
     ]);
 });
 
 
 Route::get('posts/{slug}', function($slug) {
-    $blog_posts = [
-        [
-            "title" => "Judul post pertama",
-            "slug" => "judul-post-pertama",
-            "author" => "Hikmal Falah",
-            "body" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, atque nostrum quaerat reiciendis ipsum et dolorem magni suscipit quo ullam eius, autem aut? Dolorum ducimus quibusdam repellendus, aperiam in libero, quaerat quia consequuntur adipisci voluptas ratione molestias soluta laborum voluptate, debitis natus tenetur architecto officia doloribus quos ad rerum dicta."
-        ],
-        [
-            "title" => "Judul post kedua",
-            "slug" => "judul-post-kedua",
-            "author" => "Justina Xie",
-            "body" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, eaque necessitatibus aut dicta, est animi minus rem iusto distinctio, itaque repellendus cupiditate? Iure quam nisi nesciunt accusamus modi quia asperiores! Repudiandae corporis laudantium unde id exercitationem est, nihil laborum earum fuga, commodi veritatis necessitatibus obcaecati nobis dolorem impedit quaerat quisquam temporibus. Excepturi, earum atque nulla quas cumque totam molestias est porro, consequatur eveniet eum quia quaerat modi architecto optio quam quis quae reiciendis facere. Nobis modi voluptatibus quaerat consequatur! Consectetur!"
-        ]
-    ];
-
-    $new_post = [];
-    foreach($blog_posts as $post) {
-        if ($post["slug"] === $slug) {
-            $new_post = $post;
-        }
-    }
-
     return view('post', [
         'title' => 'Single Post',
-        'post' => $new_post
+        'post' => Post::find($slug)
     ]);
 });
