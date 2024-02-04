@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Hikmal Falah Blog | Posts</title>
-</head>
-<body>
-    
-    <h1>Halaman Posts</h1>
+@extends('layouts.main')
 
-</body>
-</html>
+@section('contents')
+<section class="home pt-4">
+    <div class="container">
+        @foreach ($posts as $post)
+            <article>
+                <a href="/posts/{{ $post["slug"] }}">
+                    <h2 class="judul">{{ $post["title"] }}</h2>
+                </a>
+                <h5 class="author">By: {{ $post["author"] }}</h5>
+                <p class="content">{{ $post["body"] }}</p>
+            </article>
+        @endforeach
+    </div>
+</section>
+@endsection
