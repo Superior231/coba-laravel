@@ -6,10 +6,10 @@
         @foreach ($posts as $post)
             <article>
                 <a href="/posts/{{ $post["slug"] }}">
-                    <h2 class="judul">{{ $post["title"] }}</h2>
+                    <h2 class="judul">{{ $post->title }}</h2>
                 </a>
-                <h5 class="author">By: {{ $post["author"] }}</h5>
-                <p class="content">{{ $post["body"] }}</p>
+                <h5 class="author">By: {{ $post->author }}</h5>
+                <p class="content">{{ $post->excerpt }}</p>
             </article>
         @endforeach
     </div>
