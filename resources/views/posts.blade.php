@@ -9,7 +9,7 @@
                 <a href="/posts/{{ $post["slug"] }}" class="link">
                     <h2 class="judul">{{ $post->title }}</h2>
                 </a>
-                <h5 class="author">By: <a href="#" class="link-user">{{ $post->user->name }}</a> <a href="/categories/{{ $post->category->slug }}" class="link">{{ $post->category->name }}</a></h5>
+                <h5 class="author">By: <a href="/authors/{{ $post->author->username }}" class="link-user">{{ $post->author->name }}</a> in <a href="/categories/{{ $post->category->slug }}" class="link">{{ $post->category->name }}</a></h5>
                 <p class="content">{{ $post->excerpt }}</p>
 
                 <a href="/posts/{{ $post["slug"] }}" class="link"><h6>Read more..</h6></a>

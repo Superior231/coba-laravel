@@ -23,9 +23,9 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
     
-    public function user()
+    public function author()
     {
         // 1 post hanya boleh memiliki 1 user | One to One
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

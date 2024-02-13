@@ -5,7 +5,7 @@
         <div class="container">
             <article>
                 <h2 class="judul">{{ $post->title }}</h2>
-                <h5 class="author">By: <a href="#" class="link-user">{{ $post->user->name }}</a> in <a href="/categories/{{ $post->category->slug }}" class="link">{{ $post->category->name }}</a></h5>
+                <h5 class="author">By: <a href="/authors/{{ $post->author->username }}" class="link-user">{{ $post->author->name }}</a> in <a href="/categories/{{ $post->category->slug }}" class="link">{{ $post->category->name }}</a></h5>
                 <p class="content">{!! $post->body !!}</p>
                 {{-- {!!  !!} htmlspecialchar off / false --}}
             </article>
