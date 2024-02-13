@@ -3,7 +3,7 @@
 @section('contents')
 <section class="home pt-4">
     <div class="container">
-        <h1 class="mb-4">Halaman blog post</h1>
+        <h1 class="mb-4">Post category : {{ $category }}</h1>
         @foreach ($posts as $post)
             <article>
                 <a href="/posts/{{ $post["slug"] }}">
