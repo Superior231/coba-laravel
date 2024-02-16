@@ -11,10 +11,12 @@ class PostController extends Controller
     {
         return view('posts', [
             'title' => 'All posts',
+            'active' => 'posts',
             // 'posts' => Post::all()
 
-            // Optimalisasi query menggunakan Eager Loading
-            'posts' => Post::with(['author', 'category'])->latest()->get()
+            // Optimalisasi query menggunakan Eager Loading | pindah ke Models Post agar tidak terlalu panjang
+            // 'posts' => Post::with(['category', 'author'])->latest()->get();
+            'posts' => Post::latest()->get()
         ]);
     }
 
@@ -22,6 +24,7 @@ class PostController extends Controller
     {
         return view('post', [
             'title' => 'Single Post',
+            'active' => 'posts',
             'post' => $post
         ]);
     }

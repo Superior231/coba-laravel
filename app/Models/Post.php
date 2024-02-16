@@ -15,6 +15,9 @@ class Post extends Model
     // yang gak boleh diisi
     protected $guarded = ['id'];
 
+    // Optimalisasi query menggunakan Eager Loading
+    protected $with = ['category', 'author'];
+
 
     // relasi table database
     public function category()

@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(3)->create();
+        User::factory(4)->create();
 
         // Users
         // User::create([
@@ -38,6 +38,14 @@ class DatabaseSeeder extends Seeder
         Category::create([
             'name'=>'Programming',
             'slug' => 'programming'
+        ]);
+        Category::create([
+            'name'=>'Web Desain',
+            'slug' => 'web-desain'
+        ]);
+        Category::create([
+            'name'=>'Data Science',
+            'slug' => 'data-science'
         ]);
         Category::create([
             'name'=>'Personal',

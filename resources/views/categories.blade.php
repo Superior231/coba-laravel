@@ -1,18 +1,27 @@
 @extends('layouts.main')
 
 @section('contents')
-<section class="home pt-4">
+<section class="home py-4">
     <div class="container">
-        <h1 class="mb-4">Post categories</h1>
-        @foreach ($categories as $category)
-        <ul>
-            <li>
-                <a href="/categories/{{ $category->slug }}" class="link">
-                    <h2 class="judul">{{ $category->name }}</h2>
-                </a>
-            </li>
-        </ul>
-        @endforeach
+        <h1 class="mb-4">Category</h1>
+
+        <div class="container px-0">
+            <div class="row g-3">
+                @foreach ($categories as $category)
+                <div class="col-md-6 col-lg-4">
+                    <div class="card bg-light text-white">
+                        <a href="/categories/{{ $category->slug }}" class="link">
+                            <img src="/img/background.jpg" class="card-img" alt="{{ $category->name }}" style="border-radius: 10px;">
+                            <div class="card-img-overlay d-flex align-items-center justify-content-center" style="background-color: rgba(0, 0, 0, 0.4); border-radius: 10px;">
+                                <h5 class="card-title text-light">{{ $category->name }}</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+        
     </div>
 </section>
 @endsection

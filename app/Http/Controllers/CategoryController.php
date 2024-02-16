@@ -11,6 +11,7 @@ class CategoryController extends Controller
     {
         return view('categories', [
             'title' => 'Post Categories',
+            'active' => 'categories',
             'categories'=> Category::all()
         ]);
     }
@@ -19,6 +20,7 @@ class CategoryController extends Controller
     {
         return view('category', [
             'title' => $category->name,
+            'active' => 'category',
             // Optimalisasi query menggunakan Lazy Eager Loading
             'posts' => $category->posts->load('category', 'author'),
             'category'=> $category->name
