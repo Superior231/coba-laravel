@@ -19,7 +19,8 @@ class CategoryController extends Controller
     {
         return view('category', [
             'title' => $category->name,
-            'posts' => $category->posts,
+            // Optimalisasi query menggunakan Lazy Eager Loading
+            'posts' => $category->posts->load('category', 'author'),
             'category'=> $category->name
         ]);
     }

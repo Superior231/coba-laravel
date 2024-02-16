@@ -10,9 +10,11 @@ class PostController extends Controller
     public function index()
     {
         return view('posts', [
-            'title' => 'Blog',
+            'title' => 'All posts',
             // 'posts' => Post::all()
-            'posts' => Post::latest()->get()
+
+            // Optimalisasi query menggunakan Eager Loading
+            'posts' => Post::with(['author', 'category'])->latest()->get()
         ]);
     }
 

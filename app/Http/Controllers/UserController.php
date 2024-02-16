@@ -11,19 +11,11 @@ class UserController extends Controller
     public function author(User $author)
     {
         return view('author', [
-            'title' => 'Author post',
+            'title' => 'Post by author : '.$author->name,
             'author' => $author->name,
             'email' => $author->email,
-            'posts' => $author->posts
+            // Optimalisasi query menggunakan Lazy Eager Loading
+            'posts' => $author->posts->load('author', 'category')
         ]);
     }
-
-    // public function category(Category $category)
-    // {
-    //     return view('category', [
-    //         'title' => $category->name,
-    //         'posts' => $category->posts,
-    //         'category'=> $category->name
-    //     ]);
-    // }
 }

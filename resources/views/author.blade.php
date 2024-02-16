@@ -12,6 +12,10 @@
             </div>
             <!-- Breadcrumb End -->
 
+            <!-- judul -->
+            <h3 class="mb-4">{{ $title }}</h3>
+            <!-- judul end -->
+
             <div class="row row-cols-1 position-relative ">
                 <div class="col col-lg-4 position-sticky-top">
                     <div class="card">
