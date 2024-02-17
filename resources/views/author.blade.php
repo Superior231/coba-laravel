@@ -6,14 +6,39 @@
             <!-- Breadcrumb -->
             <div class="breadcrumb-container" id="breadcrumb-container">
                 <ol class="breadcrumb">
-                    <a href="/blog" class="breadcrumb-items">Blog</a>
+                    <a href="/posts" class="breadcrumb-items">Blog</a>
                     <a href="" class="breadcrumb-items active">Author</a>
                 </ol>
             </div>
             <!-- Breadcrumb End -->
 
             <!-- judul -->
-            <h3 class="mb-4">{{ $title }}</h3>
+            <div class="container px-0">
+                <div class="row">
+                    <div class="col-md-8 col-lg-8">
+                        <h3 class="mb-4">{{ $title }}</h3>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+
+                        <!-- Search -->
+                        <form action="/authors/{{ $username }}" method="GET" class="d-flex justify-content-end">
+                            @if (request('category'))
+                                <input type="hidden" name="category" value="{{ request('category') }}">
+                                {{-- @elseif (request('author'))  
+                                    <input type="hidden" name="author" value="{{ request('author') }}">  --}}
+                            @endif
+                            <div class="container-search w-100" id="container-search">
+                                <input type="search" name="search" id="search" placeholder="Search here..." value="{{ request('search') }}" autocomplete="off">
+                                <button type="submit" class="btn-search">
+                                    <i class='bx bx-search'></i>
+                                </button>
+                            </div>
+                        </form>
+                        <!-- Search End -->
+
+                    </div>
+                </div>
+            </div>
             <!-- judul end -->
 
             <div class="row row-cols-1 position-relative ">
@@ -49,7 +74,7 @@
                                     <a href="/posts/{{ $post["slug"] }}" class="link">
                                         <h2 class="judul">{{ $post->title }}</h2>
                                     </a>
-                                    <h5 class="author">By: <a href="#" class="link-user">{{ $post->author->name }}</a> in <a href="/categories/{{ $post->category->slug }}" class="link">{{ $post->category->name }}</a></h5>
+                                    <h5 class="author">By: <a href="#" class="link-user">{{ $post->author->name }}</a> in <a href="/posts?category={{ $post->category->slug }}" class="link">{{ $post->category->name }}</a></h5>
                                     <p class="content">{{ $post->excerpt }}</p>
                     
                                     <a href="/posts/{{ $post["slug"] }}" class="link"><h6>Read more..</h6></a>

@@ -18,12 +18,11 @@ class CategoryController extends Controller
 
     public function category(Category $category)
     {
-        return view('category', [
-            'title' => $category->name,
+        return view('posts', [
+            'title' => "Post by category: $category->name",
             'active' => 'category',
             // Optimalisasi query menggunakan Lazy Eager Loading
-            'posts' => $category->posts->load('category', 'author'),
-            'category'=> $category->name
+            'posts' => $category->posts->load('category', 'author')
         ]);
     }
 }

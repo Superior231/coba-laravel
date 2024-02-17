@@ -17,7 +17,7 @@
               {{ ($active === "categories" OR $active === "category") ? 'Category' : 'Blog' }}
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item {{ ($active === "posts") ? 'active' : '' }}" href="/blog">Blog</a></li>
+              <li><a class="dropdown-item {{ ($active === "posts") ? 'active' : '' }}" href="/posts">Blog</a></li>
               <li><a class="dropdown-item {{ ($active === "categories") ? 'active' : '' }}" href="/categories">Categories</a></li>
             </ul>
           </li>

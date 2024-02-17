@@ -82,3 +82,31 @@ a.link-category > .text-tag-category:hover {
   border: none;
   border-radius: 10px;
 }
+
+/* Search */
+.container-search {
+  display: flex;
+  align-items: center;
+  background-color: #e9ecef;
+  min-width: 100px;
+  max-width: 300px;
+  height: 50px;
+  border-radius: 50px;
+  margin-bottom: 30px;
+}
+.container-search input {
+  width: 100%;
+  background-color: transparent;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  margin-left: 20px;
+}
+.container-search .btn-search {
+  background-color: transparent;
+  border: none;
+  margin-right: 20px;
+  margin-top: 2px;
+  padding: 0px;
+}
+/* Search End */
